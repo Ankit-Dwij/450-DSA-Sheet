@@ -1,32 +1,50 @@
+// https://practice.geeksforgeeks.org/problems/move-all-negative-elements-to-end1813/1#
+#include <bits/stdc++.h>
+using namespace std;
 
-https://practice.geeksforgeeks.org/problems/sort-an-array-of-0s-1s-and-2s4231/1
-void swap(int* a, int* b)
-{
-    int temp = *a;
-    *a = *b;
-    *b = temp;
-}
-
-void sort012(int a[], int n)
-{
-    int l,m,h;
-    l=0; m=0; h=n-1;
-    
-    while(m<=h){
-        switch(a[m]){
-            case 0:
-            swap(&a[m++],&a[l++]);
-            break;
-            
-            case 1:
-            m++;
-            break;
-            
-            case 2:
-            swap(&a[m],&a[h--]);
-            break;
-            
+ // } Driver Code Ends
+class Solution{
+    public:
+    void segregateElements(int arr[],int n)
+    {
+        // Your code goes here
+        int temp[n];
+        int j=0;
+        
+        for(int i=0;i<n;i++){
+            if(arr[i]>0)
+                temp[j++]=arr[i];
         }
+        for(int i=0;i<n;i++){
+            if(arr[i]<0)
+                temp[j++]=arr[i];
+        }
+        for(int i=0;i<n;i++){
+            arr[i]=temp[i];
+        }
+        
+        
     }
-    
+};
+
+// { Driver Code Starts.
+int main() {
+	// your code goes here
+	int t;
+	cin>>t;
+	while(t--)
+	{
+		int n;
+		cin>>n;
+		int a[n];
+		for(int i=0;i<n;i++)
+		cin>>a[i];
+		Solution ob;
+		ob.segregateElements(a,n);
+		
+        for(int i=0;i<n;i++)
+        cout<<a[i]<<" ";
+		cout<<endl;
+	}
 }
+  // } Driver Code Ends
