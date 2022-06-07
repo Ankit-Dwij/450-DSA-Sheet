@@ -8,7 +8,7 @@ class Solution
         // Your code here
         vector<pair<int,int>> v;
         for(int i=0;i<n;i++){
-            v.push_back(end[i],start[i]);
+            v.push_back({end[i],start[i]});
         }
         
         int ans =1;
